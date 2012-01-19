@@ -8,10 +8,15 @@
 	
 <target name="setup">
   <mkdir dir="classes" />
+  <mkdir dir="javadoc" />
 </target>
 	
 <target name="compile" depends="clean, setup">
   <javac srcdir="src" destdir="classes"/>
+</target>
+	
+<target name="javadoc" depends="clean, setup" description="make javadoc">
+   <javadoc sourcepath="src" destdir="javadoc" packagenames="*" />
 </target>
 
 <target name="jarjar" depends="compile">
