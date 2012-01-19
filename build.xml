@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<project name="dork" default="jarjar" basedir=".">
+
+<target name="clean">
+	<delete dir="classes" />
+</target>
+	
+<target name="setup">
+  <mkdir dir="classes" />
+</target>
+	
+<target name="compile" depends="clean, setup">
+  <javac srcdir="src" destdir="classes"/>
+</target>
+
+<target name="jarjar" depends="compile">
+  <jar jarfile="dork.jar" basedir="classes" />
+</target>
+
+</project>

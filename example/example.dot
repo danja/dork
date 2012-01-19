@@ -1,0 +1,23 @@
+
+digraph G {
+	Example 
+          -> Described 
+       [label="implements", fontsize=12];
+  Example 
+          -> Named 
+       [label="implements", fontsize=12];
+  Example 
+          -> TestDescriber 
+       [label="extends", fontsize=12];
+  TestDescriber 
+          -> Described 
+       [label="implements", fontsize=12];
+  TestDescriber 
+          -> Object 
+       [label="extends", fontsize=12];
+  ExampleUnrelatedClass 
+          -> Object 
+       [label="extends", fontsize=12];
+  
+}
+  

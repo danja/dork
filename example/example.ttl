@@ -1,0 +1,42 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix java:    <http://purl.org/stuff/java/> .
+@prefix stuff:       <http://purl.org/stuff/> .
+
+java:implements a rdf:Property ;
+    rdfs:label "implements" .
+java:extends a rdf:Property ;
+    rdfs:label "extends" .
+### describing an object
+### describing a Class
+<http://hyperdata.org/code/common/describe/Example> a java:Class ;
+java:implements <http://hyperdata.org/code/common/describe/Described> ;
+java:implements <http://hyperdata.org/code/common/describe/Named> ;
+java:extends <http://hyperdata.org/code/common/describe/TestDescriber> .
+
+<http://hyperdata.org/code/common/describe/Example> rdfs:label "Example" .
+<http://hyperdata.org/code/common/describe/Described> rdfs:label "Described" .
+<http://hyperdata.org/code/common/describe/Named> rdfs:label "Named" .
+<http://hyperdata.org/code/common/describe/TestDescriber> rdfs:label "TestDescriber" .
+[ foaf:name "This Example" ] a <http://hyperdata.org/code/common/describe/Example> .
+<http://hyperdata.org/code/common/describe/Example> dc:description "An example program" .
+### describing an object
+### describing a Class
+<http://hyperdata.org/code/common/describe/TestDescriber> a java:Class ;
+java:implements <http://hyperdata.org/code/common/describe/Described> ;
+java:extends <http://purl.org/stuff/code/java/Object> .
+
+<http://hyperdata.org/code/common/describe/TestDescriber> rdfs:label "TestDescriber" .
+<http://hyperdata.org/code/common/describe/Described> rdfs:label "Described" .
+<http://purl.org/stuff/code/java/Object> rdfs:label "Object" .
+### describing a Class
+<http://hyperdata.org/code/common/describe/ExampleUnrelatedClass> a java:Class ;
+java:extends <http://purl.org/stuff/code/java/Object> .
+
+<http://hyperdata.org/code/common/describe/ExampleUnrelatedClass> rdfs:label "ExampleUnrelatedClass" .
+<http://purl.org/stuff/code/java/Object> rdfs:label "Object" .
+

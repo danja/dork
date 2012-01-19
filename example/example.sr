@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sparql xmlns="http://www.w3.org/2005/sparql-results#">
+  <head>
+    <variable name="sLabel"/>
+    <variable name="pLabel"/>
+    <variable name="oLabel"/>
+  </head>
+  <results>
+    <result>
+      <binding name="sLabel"><literal>Example</literal></binding>
+      <binding name="pLabel"><literal>implements</literal></binding>
+      <binding name="oLabel"><literal>Described</literal></binding>
+    </result>
+    <result>
+      <binding name="sLabel"><literal>Example</literal></binding>
+      <binding name="pLabel"><literal>implements</literal></binding>
+      <binding name="oLabel"><literal>Named</literal></binding>
+    </result>
+    <result>
+      <binding name="sLabel"><literal>Example</literal></binding>
+      <binding name="pLabel"><literal>extends</literal></binding>
+      <binding name="oLabel"><literal>TestDescriber</literal></binding>
+    </result>
+    <result>
+      <binding name="sLabel"><literal>TestDescriber</literal></binding>
+      <binding name="pLabel"><literal>implements</literal></binding>
+      <binding name="oLabel"><literal>Described</literal></binding>
+    </result>
+    <result>
+      <binding name="sLabel"><literal>TestDescriber</literal></binding>
+      <binding name="pLabel"><literal>extends</literal></binding>
+      <binding name="oLabel"><literal>Object</literal></binding>
+    </result>
+    <result>
+      <binding name="sLabel"><literal>ExampleUnrelatedClass</literal></binding>
+      <binding name="pLabel"><literal>extends</literal></binding>
+      <binding name="oLabel"><literal>Object</literal></binding>
+    </result>
+  </results>
+</sparql>
