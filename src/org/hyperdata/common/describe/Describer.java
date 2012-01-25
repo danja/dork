@@ -161,6 +161,16 @@ public class Describer implements Described {
 		}
 		return description;
 	}
+	
+	/**
+	 * e.g. class java.lang.Integer -> java.lang.Integer
+	 * 
+	 * @param object
+	 * @return
+	 */
+	public static String getJavaDatatype(Object object){
+		return object.getClass().toString().split(" ")[1]; 
+	}
 
 	public static void save(String filename, String string) {
 		try {
@@ -174,6 +184,8 @@ public class Describer implements Described {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	public static String namespaces = ""
 			+ "@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n"

@@ -34,6 +34,12 @@ generation of diagrams requires dot, a SPARQL engine (e.g. Redland/roqet) and an
 
 (ignore lib/* for now, that's for an RDF doclet, when I get around to it)
 
+## Issues
+not sure how best to do rdf:Lists (and this is probably an issue with other structures)
+e.g. ThingList is a list of Thing, really want Thing to return both :
+a standalone description
+a [description of this node] for inclusion in ThingList
+
 ## License
 Apache 2.0 or similar
 (use as you like, attribution/link appreciated)
