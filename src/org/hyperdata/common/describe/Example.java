@@ -11,8 +11,8 @@ package org.hyperdata.common.describe;
 public class Example extends TestDescriber implements Described, Named {
 
 	public String describe(){
-		String description = Describer.getDescription(this);
-		String uri = Describer.getURI(this);
+		String description = DefaultDescriber.getDescription(this);
+		String uri = DefaultDescriber.getURI(this);
 		description += "<"+uri+"> dc:description \"An example program\" .\n";
 		return description;
 	}
@@ -22,21 +22,21 @@ public class Example extends TestDescriber implements Described, Named {
 		TestDescriber td = new TestDescriber();
 		
 		// namespace prefixes as header
-		String description = Describer.namespaces;
+		String description = DefaultDescriber.namespaces;
 		
 		// gives properties labels
-		description += Describer.vocab;
+		description += DefaultDescriber.vocab;
 		
 		// example has a describe method, so call it
 		description += example.describe();
 		
 		// get td's description by introspection
-		description += Describer.getDescription(td);
+		description += DefaultDescriber.getDescription(td);
 		
 		// get unrelated class's description by introspection
-		description += Describer.getDescription(ExampleUnrelatedClass.class);
+		description += DefaultDescriber.getDescription(ExampleUnrelatedClass.class);
 		System.out.println(description);
-		Describer.save("./example.ttl", description);
+		DefaultDescriber.save("./example.ttl", description);
 	}
 
 	/* (non-Javadoc)
