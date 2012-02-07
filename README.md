@@ -20,7 +20,7 @@ with an instance of the object you wish to describe
 
 *_and/or_*
 
-// NB. not sure how to handle the string return value yet - need to try in practice
+// NB. not altogether sure how to deal with the describe() string return value yet - need to try in practice
 
 (following the [Visitor](http://en.wikipedia.org/wiki/Visitor_pattern) pattern)  
 
@@ -34,17 +34,19 @@ and create implementations of Describer, supporting the following this interface
 	public String describe(Object object);
 
 Atomic elements:
-public void acceptDescriber(Describer describer) {
-describer.describe(this);
-}
+
+	public void acceptDescriber(Describer describer) {
+		describer.describe(this);
+	}
 
 For composite elements:
-public void acceptDescriber(Describer describer) {
-for(Describable element : this.getElements()) {
-element.acceptDescriber(describer);
-}
-describer.describe(this);
-}
+
+	public void acceptDescriber(Describer describer) {
+		for(Describable element : this.getElements()) {
+			element.acceptDescriber(describer);
+		}
+		describer.describe(this);
+	}
 
 ## Example
 
