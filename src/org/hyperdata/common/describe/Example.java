@@ -22,10 +22,10 @@ public class Example extends TestDescriber implements Described, Named {
 		TestDescriber td = new TestDescriber();
 		
 		// namespace prefixes as header
-		String description = DefaultDescriber.namespaces;
+		String description = Describer.namespaces;
 		
 		// gives properties labels
-		description += DefaultDescriber.vocab;
+		description += Describer.vocab;
 		
 		// example has a describe method, so call it
 		description += example.describe();

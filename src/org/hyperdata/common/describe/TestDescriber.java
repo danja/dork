@@ -14,7 +14,7 @@ public class TestDescriber implements Described {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(DefaultDescriber.namespaces);
+		System.out.println(Describer.namespaces);
 		System.out.println(DefaultDescriber.getDescription(new TestDescriber()));
 	}
 }

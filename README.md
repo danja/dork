@@ -4,19 +4,47 @@ _Description of Runtime Klasses_
 dork is a simple system for getting descriptions of running code. 
 
 *_Either_*
-have your classes implement the org.hyperdata.common.describe.Described interface 
+have your classes implement the Described interface 
 this defines one method:
 
-    public String describe()
+	public String describe()
 
 which should return a Turtle syntax RDF description of the class
 
 *_and/or_*
 call the static utility method (in org.hyperdata.common.describe) :
 
-Describer.getDescription(Object object)
+DefaultDescriber.getDescription(Object object)
 
 with an instance of the object you wish to describe
+
+*_and/or_*
+
+// NB. not sure how to handle the string return value yet - need to try in practice
+
+(following the [Visitor](http://en.wikipedia.org/wiki/Visitor_pattern) pattern)  
+
+have your classes implement the Describable interface:
+this defines one method:
+
+	public void acceptDescriber(Describer describer);
+
+and create implementations of Describer, supporting the following this interface:
+
+	public String describe(Object object);
+
+Atomic elements:
+public void acceptDescriber(Describer describer) {
+describer.describe(this);
+}
+
+For composite elements:
+public void acceptDescriber(Describer describer) {
+for(Describable element : this.getElements()) {
+element.acceptDescriber(describer);
+}
+describer.describe(this);
+}
 
 ## Example
 

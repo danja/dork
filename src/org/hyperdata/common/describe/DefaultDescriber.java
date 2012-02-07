@@ -22,8 +22,6 @@ public class DefaultDescriber implements Described, Describer {
 
 	public static Map<String, String> nsMap = new HashMap<String, String>();
 
-	// uses slash URIs - final slash left off declaration here
-	public static final String defaultBase = "http://purl.org/stuff/code/java";
 	static {
 		nsMap.put("java.lang", "http://purl.org/stuff/code/java");
 		nsMap.put("org.hyperdata", "http://hyperdata.org/code");
@@ -71,7 +69,7 @@ public class DefaultDescriber implements Described, Describer {
 		// System.out.println("JAVA " + javaName);
 
 		Iterator<String> keys = nsMap.keySet().iterator();
-		String uri = defaultBase;
+		String uri = Describer.defaultBase;
 
 		while (keys.hasNext()) {
 			String key = keys.next();
@@ -186,21 +184,6 @@ public class DefaultDescriber implements Described, Describer {
 	}
 	
 	
-
-	public static String namespaces = ""
-			+ "@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n"
-			+ "@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .\n"
-			+ "@prefix owl:     <http://www.w3.org/2002/07/owl#> .\n"
-			+ "@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .\n"
-			+ "@prefix dc:      <http://purl.org/dc/terms/> .\n"
-			+ "@prefix foaf:    <http://xmlns.com/foaf/0.1/> .\n"
-			+ "@prefix java:    <http://purl.org/stuff/java/> .\n"
-			+ "@prefix stuff:       <http://purl.org/stuff/> .\n\n";
-
-	public static String vocab = "java:implements a rdf:Property ;\n"
-			+ "    rdfs:label \"implements\" .\n"
-			+ "java:extends a rdf:Property ;\n"
-			+ "    rdfs:label \"extends\" .\n";
 
 	/* (non-Javadoc)
 	 * @see org.hyperdata.common.describe.Describer#describe(java.lang.Object)
