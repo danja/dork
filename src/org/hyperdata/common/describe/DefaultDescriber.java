@@ -101,7 +101,7 @@ public class DefaultDescriber implements Described, Describer {
 	public static String getDescription(Object object) {
 		Class klass = object.getClass();
 
-		String description = "### describing an object\n";
+		String description = "\n### describing instance of "+klass.getName()+"\n";
 		description += getDescription(klass);
 
 		Class[] interfaces = klass.getInterfaces();
@@ -130,7 +130,7 @@ public class DefaultDescriber implements Described, Describer {
 
 	public static String getDescription(Class klass) {
 
-		String description = "### describing a Class\n";
+		String description = "\n### describing Class "+klass.getName()+"\n";
 		List<Class> classes = new ArrayList<Class>(); // collected for labeling
 
 		String classURI = extractClassURI(klass);
@@ -168,6 +168,12 @@ public class DefaultDescriber implements Described, Describer {
 	 */
 	public static String getJavaDatatype(Object object){
 		return object.getClass().toString().split(" ")[1]; 
+	}
+	
+	public static String getJavaDatatypeAsProperty(Object object){
+		String javaName = getJavaDatatype(object);
+		String[] split = javaName.split("\\.");
+		return "jtype:"+split[split.length -1].toLowerCase();
 	}
 
 	public static void save(String filename, String string) {

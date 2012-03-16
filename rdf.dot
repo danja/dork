@@ -1,0 +1,59 @@
+digraph {
+	rankdir = LR;
+	charset="utf-8";
+
+	"Rjava:implements" -> "Rrdf:Property" [ label="rdf:type" ];
+	"Rjava:implements" -> "Limplements" [ label="rdfs:label" ];
+	"Rjava:extends" -> "Rrdf:Property" [ label="rdf:type" ];
+	"Rjava:extends" -> "Lextends" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "Rjava:Class" [ label="rdf:type" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "Rhttp://hyperdata.org/code/common/describe/Described" [ label="java:implements" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "Rhttp://hyperdata.org/code/common/describe/Named" [ label="java:implements" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "Rhttp://hyperdata.org/code/common/describe/TestDescriber" [ label="java:extends" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "LExample" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/Described" -> "LDescribed" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/Named" -> "LNamed" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" -> "LTestDescriber" [ label="rdfs:label" ];
+	"B_:genid1" -> "LThis Example" [ label="foaf:name" ];
+	"B_:genid1" -> "Rhttp://hyperdata.org/code/common/describe/Example" [ label="rdf:type" ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" -> "LAn example program" [ label="dc:description" ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" -> "Rjava:Class" [ label="rdf:type" ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" -> "Rhttp://hyperdata.org/code/common/describe/Described" [ label="java:implements" ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" -> "Rstuff:code/java/Object" [ label="java:extends" ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" -> "LTestDescriber" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/Described" -> "LDescribed" [ label="rdfs:label" ];
+	"Rstuff:code/java/Object" -> "LObject" [ label="rdfs:label" ];
+	"Rhttp://hyperdata.org/code/common/describe/ExampleUnrelatedClass" -> "Rjava:Class" [ label="rdf:type" ];
+	"Rhttp://hyperdata.org/code/common/describe/ExampleUnrelatedClass" -> "Rstuff:code/java/Object" [ label="java:extends" ];
+	"Rhttp://hyperdata.org/code/common/describe/ExampleUnrelatedClass" -> "LExampleUnrelatedClass" [ label="rdfs:label" ];
+	"Rstuff:code/java/Object" -> "LObject" [ label="rdfs:label" ];
+
+	// Resources
+	"Rjava:implements" [ label="java:implements", shape = ellipse, color = blue ];
+	"Rrdf:Property" [ label="rdf:Property", shape = ellipse, color = blue ];
+	"Rjava:extends" [ label="java:extends", shape = ellipse, color = blue ];
+	"Rhttp://hyperdata.org/code/common/describe/Example" [ label="http://hyperdata.org/code/common/describe/Example", shape = ellipse, color = blue ];
+	"Rjava:Class" [ label="java:Class", shape = ellipse, color = blue ];
+	"Rhttp://hyperdata.org/code/common/describe/Described" [ label="http://hyperdata.org/code/common/describe/Described", shape = ellipse, color = blue ];
+	"Rhttp://hyperdata.org/code/common/describe/Named" [ label="http://hyperdata.org/code/common/describe/Named", shape = ellipse, color = blue ];
+	"Rhttp://hyperdata.org/code/common/describe/TestDescriber" [ label="http://hyperdata.org/code/common/describe/TestDescriber", shape = ellipse, color = blue ];
+	"Rstuff:code/java/Object" [ label="stuff:code/java/Object", shape = ellipse, color = blue ];
+	"Rhttp://hyperdata.org/code/common/describe/ExampleUnrelatedClass" [ label="http://hyperdata.org/code/common/describe/ExampleUnrelatedClass", shape = ellipse, color = blue ];
+
+	// Anonymous nodes
+	"B_:genid1" [ label="", shape = circle, color = green ];
+
+	// Literals
+	"Limplements" [ label="implements", shape = record ];
+	"Lextends" [ label="extends", shape = record ];
+	"LExample" [ label="Example", shape = record ];
+	"LDescribed" [ label="Described", shape = record ];
+	"LNamed" [ label="Named", shape = record ];
+	"LTestDescriber" [ label="TestDescriber", shape = record ];
+	"LThis Example" [ label="This Example", shape = record ];
+	"LAn example program" [ label="An example program", shape = record ];
+	"LObject" [ label="Object", shape = record ];
+	"LExampleUnrelatedClass" [ label="ExampleUnrelatedClass", shape = record ];
+
+	label="\n\nModel:\n(Unknown)\n\nNamespaces:\nrdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\nrdfs: http://www.w3.org/2000/01/rdf-schema#\nowl: http://www.w3.org/2002/07/owl#\nxsd: http://www.w3.org/2001/XMLSchema#\ndc: http://purl.org/dc/terms/\nfoaf: http://xmlns.com/foaf/0.1/\njava: http://purl.org/stuff/java/\nstuff: http://purl.org/stuff/\n";
+}
