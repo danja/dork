@@ -19,8 +19,12 @@ import java.util.Set;
  * 
  */
 public class DefaultDescriber implements Described, Describer {
+	
+	public static boolean WITH_JAVA = false;
 
 	public static Map<String, String> nsMap = new HashMap<String, String>();
+	
+	public static Map<String, String> typeMap = new HashMap<String, String>();
 
 	static {
 		nsMap.put("java.lang", "http://purl.org/stuff/code/java");
@@ -99,6 +103,7 @@ public class DefaultDescriber implements Described, Describer {
 	}
 
 	public static String getDescription(Object object) {
+		
 		Class klass = object.getClass();
 
 		String description = "\n### describing instance of "+klass.getName()+"\n";
@@ -121,14 +126,22 @@ public class DefaultDescriber implements Described, Describer {
 			}
 		}
 
-		if (implementsNamed) {
+		if (implementsNamed) { // FIXME never gets here - is foaf:name even approapriate???
 			description += "[ foaf:name \"" + ((Named) object).getName()
 					+ "\" ] a <" + extractClassURI(klass) + "> .\n";
 		}
+		description +="##############\n";
 		return description;
 	}
 
 	public static String getDescription(Class klass) {
+		if(WITH_JAVA){
+			return getJavaDescription(klass);
+		}
+		return "";
+	}
+	
+	public static String getJavaDescription(Class klass) {
 
 		String description = "\n### describing Class "+klass.getName()+"\n";
 		List<Class> classes = new ArrayList<Class>(); // collected for labeling
@@ -175,6 +188,21 @@ public class DefaultDescriber implements Described, Describer {
 		String[] split = javaName.split("\\.");
 		return "jtype:"+split[split.length -1].toLowerCase();
 	}
+	
+	/**
+	 * should maybe use a map, but this'll do for now
+	 * 
+	 * @param object
+	 * @return
+	 */
+	public static String getDatatypeSuffix(Object object){
+		String javaName = getJavaDatatype(object);
+		String[] split = javaName.split("\\.");
+		String javaType = split[split.length -1].toLowerCase();
+		if(javaType.equals("string")) return "";
+		if(javaType.equals("integer")) return "^^xsd:int";
+		return "^^xsd:"+javaType;
+	}
 
 	public static void save(String filename, String string) {
 		try {
@@ -189,6 +217,18 @@ public class DefaultDescriber implements Described, Describer {
 		}
 	}
 	
+	public static String getTypedDescription(Named named, String type) {
+		String description = DefaultDescriber.getDescription(named);
+		description += "<"+named.getURI()+"> a "+type+" .";
+	//	description += named.super.describe();
+		
+//		description += named.getClass()
+//        .getSuperclass()
+//        .getMethod("describe", new Class[]{} )
+//        .invoke(  named.getClass().getSuperclass().newInstance() ,new Object[]{}  );
+        
+		return description;
+	}
 	
 
 	/* (non-Javadoc)
